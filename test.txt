@@ -1,0 +1,37 @@
+"""def check_deepseek_credits(): # Função para verificar creditos
+    url = "https://platform.deepseek.com/usage"
+    headers = {"Authorization": f"Bearer {DEEPSEEK_KEY}"}
+    
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        credits = response.json().get("data", {}).get("remaining_credit", 0)
+        return f"Créditos restantes: ${credits:.2f}"
+    except Exception as e:
+        return f"Erro ao verificar créditos: {str(e)}"
+
+# Função para consultar a API do DeepSeek
+def get_deepseek_answer(question):  # Parâmetro corrigido para 'question'
+    url = "https://api.deepseek.com/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {DEEPSEEK_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": "deepseek-chat",
+        "messages": [{"role": "user", "content": question}],  # Usando 'question'
+        "temperature": 0.7,
+        "max_tokens": 150  # Limita o tamanho da resposta para economizar créditos
+    }
+
+    try:
+        response = requests.post(url, json=data, headers=headers)
+        response.raise_for_status()
+        return response.json()['choices'][0]['message']['content']
+    except Exception as e:
+        return f"❌ Erro na API: {str(e)}"""
+
+
+"""if message.content == "!creditos": # verificar creditos deepseek
+        credit_status = check_deepseek_credits()
+        await message.channel.send(credit_status"""
